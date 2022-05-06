@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>follow list</h1>
+<p class="followList">follow list</p>
 
 <table class='table-first'>
   @foreach($follow_list as $follow_list)
@@ -15,11 +15,13 @@
 @endforeach
 </table>
 
+<p class="line"></p>
+
 <table class='table-second'>
   @foreach($post as $post)
-  <tr>
+  <tr class="follow">
     <!-- アイコンの表示 -->
-    <td class="icon">
+    <td>
       <a href="/otherProfile/{{$post->id}}"><img src="{{'images/'.$post->images}}" class="user-logo"></a>
     </td>
     <td>{{$post->username}}</td>
@@ -36,11 +38,11 @@
       <!-- $followsで返されたものが'follow'に当てはまったら -->
       <!-- 入っていなかったらフォローする -->
     <td>
-    <a href="/unFollow/{{ $post->id }}">フォローを外す</a>
+    <a class="followButton" href="/unFollow/{{ $post->id }}">フォローを外す</a>
     </td>
     @else
     <td>
-      <a href="/follow/{{ $post->id }}">フォローする</a>
+      <a class="followButton" href="/follow/{{ $post->id }}">フォローする</a>
     </td>
     @endif
   </tr>

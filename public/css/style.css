@@ -4,6 +4,7 @@
     width: 55px;
     height: 55px;
     border-radius: 50%;
+    padding: 10px;
 }
 
 html {}
@@ -36,16 +37,21 @@ header {
 }
 
 .modal-inner {
-    justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50%;
     background-color: #ffffff;
     color: #666666;
-    text-align: center;
-    padding: 50px;
-    /* ? */
     position: fixed;
+    width: 50%;
+    height: 50%;
+    text-align: start;
+    justify-content: center;
+    padding: 50px;
+}
+
+.form-update {
+    width: 80%;
+    height: 80%;
+    overflow: hidden;
 }
 
 /* アコーディオン */
@@ -74,6 +80,7 @@ header {
 }
 
 .menu li {
+    padding: 30px;
     border: solid 1px #6C6C6C;
 }
 
@@ -110,4 +117,213 @@ header {
     justify-content: space-between;
     padding: 10px;
     align-items: center;
+}
+
+/* サイドバー */
+
+#confirm {
+    margin-top: 30px;
+    border-bottom: 1px solid #6C6C6C;
+}
+
+.button {
+    font-size: 1rem;
+    background: #3C4767;
+    color: #fff;
+    border-radius: 5px;
+    padding: 18px 30px;
+
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+p.btn {
+    text-align: right;
+}
+
+p.user-btn {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.follow {
+    display: flex;
+    margin-left: 20px;
+    justify-content: space-between;
+}
+
+/* トップページ */
+.container {
+    border-bottom: solid;
+    border-color: #6C6C6C;
+    width: 100%;
+    height: 10%;
+    display: flex;
+
+}
+
+.input {
+    padding: 10px;
+}
+
+input.form-control {
+    border: none;
+    width: 60%;
+    height: 40%;
+}
+
+input.input-icon {
+    margin-left: 65rem;
+}
+
+table.table {
+    width: 100%;
+}
+
+tr.mainPost {
+    margin-top: 10px;
+    border-bottom: 1px solid;
+    border-color: #6C6C6C;
+    width: 100%;
+    height: 10%;
+}
+
+td.user {
+    width: 100px;
+}
+
+p.followList {
+    font-size: 30px;
+    margin: 20px;
+}
+
+p.line {
+    border-bottom: solid;
+    border-color: #6C6C6C;
+    width: 100%;
+    height: 5%;
+}
+
+.table-first {
+    margin-left: 50px;
+
+}
+
+.table-first tr {
+    float: left;
+
+}
+
+.table-second {
+    width: 100%;
+}
+
+.table-second td {
+    padding-right: 30px;
+}
+
+tr.follow {
+    margin: 0%;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    display: block;
+    border-bottom: 1px solid;
+    border-color: #6C6C6C;
+    width: 100%;
+    height: 10%;
+}
+
+.searchUser {
+    margin-left: 60px;
+    display: block;
+}
+
+.form-search {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.search {
+    border-bottom: solid;
+    border-color: #6C6C6C;
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+
+p.keyword {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.followButton {
+    font-size: 1rem;
+    background: #97cdf3;
+    color: #fff;
+    border-radius: 5px;
+    padding: 18px 30px;
+
+}
+
+.table-hover {
+    margin-left: 30px;
+    width: 70%;
+}
+
+.profile {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 400px;
+}
+
+.profile-logo {
+    margin-top: 30px;
+    margin-left: 400px;
+}
+
+.update {
+    font-size: 20px;
+    min-width: 50%;
+    max-height: 50px;
+}
+
+.update-btn {
+    font-size: 1rem;
+    background: #99cc65;
+    color: #fff;
+    border-radius: 5px;
+    padding: 18px 50px;
+}
+
+.profile-btn {
+    margin-top: 30px;
+    text-align: center;
+}
+
+ul.otherProfile {
+    border-bottom: solid;
+    border-color: #6C6C6C;
+    width: 100%;
+}
+
+li.icon {
+    margin-left: 400px;
+}
+
+li.name {
+    font-size: 20px;
+    margin-left: 500px;
+    margin-bottom: 20px;
+}
+
+li.btn {
+    margin-left: 1000px;
+    margin-bottom: 30px;
+}
+
+table.other {
+    width: 100%;
 }

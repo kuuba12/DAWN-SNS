@@ -2,29 +2,55 @@
 
 @section('content')
 
-{{Form::open(['url' => '/profile', 'files' => true])}}
+	{{Form::open(['url' => '/profile', 'files' => true])}}
 
-{{ Form::label('UserName') }}
-{{ Form::text('username', $users->username,['class' => 'update']) }}
+							@if ($errors->any())
+										<div class="alert alert-danger">
+												<ul>
+														@foreach ($errors->all() as $error)
+																<li>{{ $error }}</li>
+														@endforeach
+												</ul>
+										</div>
+							@endif
 
-{{ Form::label('MailAdress') }}
-{{ Form::text('mail', $users->mail,['class' => 'update']) }}
+	<div class="profile-logo">
+	<img src="{{'images/' . Auth::user()->images }}" class="user-logo">
+	</div>
 
-{{ Form::label('Password') }}
-{{ Form::text('old_password', $users->password,['readonly'])}}
+	<div class="profile">
+	{{ Form::label('UserName') }}
+	{{ Form::text('username', $users->username,['class' => 'update']) }}
+	</div>
 
-{{ Form::label('new Password') }}
-{{ Form::password('password', null,['class' => 'update'])}}
+	<div class="profile">
+	{{ Form::label('MailAdress') }}
+	{{ Form::text('mail', $users->mail,['class' => 'update']) }}
+	</div>
 
-{{ Form::label('Bio') }}
-{{ Form::text('bio', $users->bio,['class' => 'update']) }}
+	<div class="profile">
+	{{ Form::label('Password') }}
+	{{ Form::text('old_password', $users->password,['readonly','class' => 'update'])}}
+	</div>
 
-{{ Form::label('Icon Images') }}
-{{Form::file('images',['class' => 'update'])}}
+	<div class="profile">
+	{{ Form::label('new Password') }}
+	{{ Form::password('password', ['class' => 'update'])}}
+	</div>
 
-{{ Form::submit('更新') }}
+	<div class="profile">
+	{{ Form::label('Bio') }}
+	{{ Form::text('bio', $users->bio,['class' => 'update']) }}
+	</div>
 
-{{ Form::close()}}
+	<div class="profile">
+	{{ Form::label('Icon Images') }}
+	{{Form::file('images',['class' => 'update'])}}
+	</div>
 
+	<div class="profile-btn">
+	{{ Form::submit('更新',['class' => 'update-btn']) }}
+	</div>
 
-@endsection
+	{{ Form::close()}}
+	@endsection

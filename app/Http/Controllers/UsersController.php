@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Follow;
 use DB;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -14,8 +17,28 @@ class UsersController extends Controller
         $users = Auth::user();
         return view('users.profile',['users'=>$users]);
     }
+    //バリデーション
+        protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'username' => 'required|string|max:12',
+            'mail' => 'required|string|email|max:25',
+            'password' => 'max:12',
+        ], [
+            'username.required' =>'ユーザーネームは入力必須項目です。',
+            'mail.required' =>'メールアドレスは入力必須項目です。',
+            'password.max:12' =>'パスワードは12文字以内です。'
+        ]);
+    }
     //更新機能
     public function update(Request $request){
+        $validator = $this->validator($request->input());
+
+            if($validator->fails()){
+                return redirect('/profile')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
         // dd($request->file('images'));
     //ファイルがある時とない時の条件分岐
         if($request->file('images')){
@@ -53,6 +76,6 @@ class UsersController extends Controller
         $users = DB::table('users')
         //あいまい検索
         ->where('username','like','%'.$keyword.'%')->get();
-        return view('users.search',['users'=>$users, 'follow'=>$follow]);
+        return view('users.search',['users'=>$users, 'follow'=>$follow,'keyword'=>$keyword]);
     }
  }
