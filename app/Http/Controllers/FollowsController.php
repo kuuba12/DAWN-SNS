@@ -71,7 +71,7 @@ class FollowsController extends Controller
             'follower'=>Auth::id(),
             'follow'=>$id
         ]);
-        return redirect('searchUser');
+        return back();
     }
 
     //フォローを外す
@@ -80,7 +80,7 @@ class FollowsController extends Controller
         ->where('follow',$id)
         ->where('follower',Auth::id())
         ->delete();
-        return redirect('searchUser');
+        return back();
     }
 
     //相手のプロフィール
